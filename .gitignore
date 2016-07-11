@@ -1,0 +1,15 @@
+bin/
+target/
+*.orig
+
+# IntelliJ files
+.idea
+.idea/ 
+*.ipr
+*.iws
+**/*.iml
+
+.cache
+.classpath
+.project
+target
