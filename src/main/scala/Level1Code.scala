@@ -1,3 +1,5 @@
+import Function.tupled
+
 object Level1Code {
 
     private def INT_MAX: Int = Int.MaxValue;
@@ -53,24 +55,48 @@ object Level1Code {
     }
 
     // return the square root of perfect squares only.
-    //  def squareRootOfPerfectSquare(a: Int): Option[Int] = ???
-    //
-    //  // return an array containing the square of each number
-    //  // in the source array in the same order
-    //  def squareAll(as: Array[Int]): Array[Int] = ???
-    //
-    //  // return an array containing the cube of each number
-    //  // in the source array in the same order
-    //  def cubeAll(as: Array[Int]): Array[Int] = ???
-    //
-    //  // return an array containing the product of an 'a' in array 'as' with
-    //  // its respective 'b' in array 'bs'
-    //  def productAll(as: Array[Int], bs: Array[Int]): Array[Int] = ???
-    //
-    //  // sum all of the elements in the array and return the result
-    //  def sumAll(as: Array[Int]): Int = ???
-    //
-    //  // reverse the array
-    //  def reverse(as: Array[Int]): Array[Int] = ???
+    def squareRootOfPerfectSquare(a: Int): Option[Int] = {
+        var srps = math.sqrt(a)
+        //println(s"Square root of $a is $srps")
+        if ((srps % 1) == 0) Some(srps.toInt) else None
+    }
+
+    // return an array containing the square of each number
+    // in the source array in the same order
+    def squareAll(as: Array[Int]): Array[Int] = {
+        val sa = as map (BigInt(_).pow(2).intValue())
+        //println(s"Array before [[ " + as.toList + " ]] and after [[ " + sa.toList + " ]]")
+        sa
+    }
+
+    // return an array containing the cube of each number
+    // in the source array in the same order
+    def cubeAll(as: Array[Int]): Array[Int] = {
+        val ca = as map (BigInt(_).pow(3).intValue())
+        //println(s"Array before [[ " + as.toList + " ]] and after [[ " + ca.toList + " ]]")
+        ca
+    }
+
+    // return an array containing the product of an 'a' in array 'as' with
+    // its respective 'b' in array 'bs'
+    def productAll(as: Array[Int], bs: Array[Int]): Array[Int] = {
+        var pa = (as, bs).zipped.map(_ * _)
+        // println("Multiplication of arrays (Using map): " + as.toList + " AND " + bs.toList + " = " + pa.toList)
+        // var pa2 = as.zip(bs) map tupled {_ * _}
+        // println("Multiplication (Using tuple) of arrays: " + as.toList + " AND " + bs.toList + " = " + pa2.toList)
+        pa
+    }
+
+    // sum all of the elements in the array and return the result
+    def sumAll(as: Array[Int]): Int = {
+        var sum = as.sum
+        //println("Sum of array " + as.toList + " = " + sum)
+        sum
+    }
+
+    // reverse the array
+    def reverse(as: Array[Int]): Array[Int] = {
+        as.reverse
+    }
 
 }
